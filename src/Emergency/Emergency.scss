@@ -1,0 +1,14 @@
+// .line{
+//     width: 80%;
+// }
+
+.contain{
+    position: relative;
+    .inner{
+        position: absolute;
+        // margin: auto;
+        right: 0;
+        left: 0;
+        width: 56%;
+    }
+}
