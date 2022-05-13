@@ -11,7 +11,6 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      {/* <RestAPI/> */}
       <Header/>
       <Route exact path="/">
         <Main/>
