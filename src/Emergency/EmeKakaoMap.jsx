@@ -28,7 +28,7 @@ function KakaoMap(props){
     let allLocations = {
         x_axis: [], // 데이터에 있는 x축
         y_axis: [], // 데이터에 있는 y축
-        title: [] // 병원 이름
+        title: [] // 병원 이름.
     }
 
     let [changeInfoDiv, setChangeInfoDiv] = useState('');
