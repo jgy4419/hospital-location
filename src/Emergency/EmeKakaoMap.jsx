@@ -92,8 +92,8 @@ function KakaoMap(props){
 
     // 내 위치 찾아주는 함수
     function mapReset(latitude, longitude){
-        // axios.get(`http://127.0.0.1:8000/test/${latitude}/${longitude}`)
-        axios.get(`http://127.0.0.1:8000/test/${37.34182861904807}/${126.8175567728982}`)
+        axios.get(`http://127.0.0.1:8000/test/${latitude}/${longitude}`)
+        // axios.get(`http://127.0.0.1:8000/test/${37.34182861904807}/${126.8175567728982}`)
         .then(res => {
             console.log(res.data);
             // 받아온 객체를 배열로 변환.
