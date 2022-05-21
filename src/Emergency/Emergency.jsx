@@ -32,9 +32,6 @@ function Emergency(){
                     {/* input 값을 props로 보내기. */}
                     <EmergencyList className="emergencyList"/>
                 </section>
-                {/* <button onClick={urlMain} className='backBtn'>
-                    뒤로가기
-                </button> */}
             </div>
         </div>
     )

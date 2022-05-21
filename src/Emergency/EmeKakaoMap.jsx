@@ -41,26 +41,6 @@ function KakaoMap(props){
 
 
     useEffect(async () => {
-        // 데이터 불러오기 (나중에 내 위치 찾으면 -> 주소 정보, 위도, 경도 보내주고, 근처에 있는 병원 정보들 볼러오기.)
-        axios.get('http://127.0.0.1:8000/api/장항삼성의원')
-        .then(res => {
-            console.log(res.data)
-            let emeHospital = {
-                hospitalName: [],
-                hospitalTel: [],
-                hospitalAddress: [],
-            }
-            console.log(res.data.length);
-            console.log(res.data.기관명);
-            console.log(res.data.대표전화1);
-            console.log(res.data.주소);
-            // emeHospital.hospitalName.push(res.data.기관명);
-            // dispatch({type: '응급실정보', payload: {
-            //     emeCount: res.data.length,
-            //     hospitalName: 
-            // }})
-        }).catch(err => console.log(err));
-
         data[0].kakaoMapSearch = '';
         // 처음에 지도 표시해주기.
         mapContainer = document.getElementById('map'); // 지도를 표시할 div 
@@ -112,11 +92,45 @@ function KakaoMap(props){
 
     // 내 위치 찾아주는 함수
     function mapReset(latitude, longitude){
-        // 화면이 띄워지면 spinner 제거.
+        // axios.get(`http://127.0.0.1:8000/test/${latitude}/${longitude}`)
+        axios.get(`http://127.0.0.1:8000/test/${37.34182861904807}/${126.8175567728982}`)
+        .then(res => {
+            console.log(res.data);
+            // 받아온 객체를 배열로 변환.
+            let hospital = Object.entries(res.data);
+            for(let i = 0; i < hospital.length; i++){
+                // 병원 기본정보
+                dispatch({type: '응급실정보', payload: {
+                    emeCount: hospital.length,
+                    hospitalName: hospital[i][1].기관명,
+                    hospitalTel: hospital[i][1].대표전화1,
+                    hospitalAddress: hospital[i][1].주소,
+                }})
+                
+                console.log('전화번호들', hospital[i][1].응급실전화);
+
+                // 응급실 상세정보
+                dispatch({type: '응급실상세정보', payload: {
+                    emeTel: hospital[i][1].응급실전화,
+                    monday: hospital[i][1].월요진료,
+                    thusday: hospital[i][1].화요진료,
+                    wednesday: hospital[i][1].수요진료,
+                    thursday: hospital[i][1].목요진료,
+                    friday: hospital[i][1].금요진료,
+                    saturday: hospital[i][1].토요진료,
+                    sunday: hospital[i][1].일요진료,
+                    holiday: hospital[i][1].공휴일진료,
+                    treatment: hospital[i][1].병원분류명,
+                    admission: hospital[i][1].입원가능여부
+                }})
+            }
+        })
+        .catch(err => console.log(err));
         spinnerChange(false);
         mapOption = { 
             // 내 위치
             center: new kakao.maps.LatLng(state[0].clickLocationsX, state[0].clickLocationsY), // 지도의 중심좌표
+            // center: new kakao.maps.LatLng(36.97897509717851, 127.92863660615964), // 지도의 중심좌표
             level: 3 // 지도의 확대 레벨
         };
         map = new kakao.maps.Map(mapContainer, mapOption);
@@ -175,19 +189,6 @@ function KakaoMap(props){
             for(var i = 0; i < result.length; i++) {
                 // 행정동의 region_type 값은 'H' 이므로
                 if (result[i].region_type === 'H') {
-                    axios.post('url', {
-                        // 내 주소, x좌표, y좌표 보내주기.
-                        myLocation: result[i].address_name,
-                        locationX: state[0].clickLocationsX,
-                        locationY: state[0].clickLocationsY
-                    })
-                    .then(res => {
-                        console.log(res);
-                        // 백엔드 한테 주소나, 좌표를 보내준 뒤 결과를 받기. 받은 결과를 리스트에 띄우기
-                        
-                    })
-                    .catch(err => {console.log(res);})
-                    console.log(result[i].address_name);
                     infoDiv.innerHTML = result[i].address_name;
                     break;
                 }
@@ -247,6 +248,9 @@ function KakaoMap(props){
                     : null
                 }
             </div>
+            {/* <button className='backBtn'>
+                뒤로가기
+            </button> */}
         </div>
     )
 }

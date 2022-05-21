@@ -18,9 +18,8 @@ let defaultState = [
   // 상태가 0이면 내 위치 근처 지도 찾아주는 기능 넣기 1이면 응급실 찾아주는 기능 넣기
   {mapState: 0},
   // [3]은 응급실 정보 모아놓음.
-  {emeCount: 0, hospitalName: [], hospitalTel: [], hospitalAddress: [], emeTel: [], 
-    monday: [], thusday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [], holiday: [],
-    treatment: []}
+  {emeCount: 0, hospitalName: [], hospitalTel: [], hospitalAddress: []},
+  {emeTel: [], monday: [], thusday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [], holiday: [], treatment: [], admission: []}
 ]
 
 function reducer(state = defaultState, action){
@@ -46,7 +45,19 @@ function reducer(state = defaultState, action){
     copy[3].hospitalName.push(action.payload.hospitalName);
     copy[3].hospitalTel.push(action.payload.hospitalTel);
     copy[3].hospitalAddress.push(action.payload.hospitalAddress);
-  }else{
+  }else if(action.type === '응급실상세정보'){
+    copy[4].emeTel.push(action.payload.emeTel);
+    copy[4].monday.push(action.payload.monday);
+    copy[4].thusday.push(action.payload.thusday);
+    copy[4].wednesday.push(action.payload.wednesday);
+    copy[4].thursday.push(action.payload.thursday);
+    copy[4].friday.push(action.payload.friday);
+    copy[4].saturday.push(action.payload.saturday);
+    copy[4].sunday.push(action.payload.sunday);
+    copy[4].holiday.push(action.payload.holiday);
+    copy[4].treatment.push(action.payload.treatment);
+    copy[4].admission.push(action.payload.admission);
+  }else{ 
     return state;
   }
 }
