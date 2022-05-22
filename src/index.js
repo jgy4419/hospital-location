@@ -19,7 +19,8 @@ let defaultState = [
   {mapState: 0},
   // [3]은 응급실 정보 모아놓음.
   {emeCount: 0, hospitalName: [], hospitalTel: [], hospitalAddress: []},
-  {emeTel: [], monday: [], thusday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [], holiday: [], treatment: [], admission: []}
+  {emeTel: [], monday: [], thusday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [], holiday: [], treatment: [], admission: []},
+  {emeX: [], emeY: []}
 ]
 
 function reducer(state = defaultState, action){
@@ -57,6 +58,9 @@ function reducer(state = defaultState, action){
     copy[4].holiday.push(action.payload.holiday);
     copy[4].treatment.push(action.payload.treatment);
     copy[4].admission.push(action.payload.admission);
+  }else if(action.type === '응급실위치'){
+    copy[5].emeX.push(action.payload.emeX);
+    copy[5].emeY.push(action.payload.emeY);
   }else{ 
     return state;
   }

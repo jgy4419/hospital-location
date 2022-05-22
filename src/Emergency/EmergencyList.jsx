@@ -40,14 +40,6 @@ function EmergencyList(){
     let [admission, setAdmission] = useState([]);
 
     useEffect(() => {
-        mapContainer = document.getElementById('map'); // 지도를 표시할 div 
-        mapOption = { 
-            // 충주 중심좌표
-            center: new kakao.maps.LatLng(36.99196502823086, 127.92563283606664),
-            level: 7 // 지도의 확대 레벨
-        };
-        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-        map = new kakao.maps.Map(mapContainer, mapOption);
         // 1초에 한 번씩 변하는 값 확인, 병원 이름이 변하면 setInterval을 멈추고, 데이터를 출력해준다.
         let interval = setInterval(() => {
             // for(let i = 0; i < 10; i++){
@@ -122,6 +114,8 @@ function EmergencyList(){
                 </div>
             </div>
             <EmergencyDetail 
+                hospitalCount = {hospitalCount}
+
                 detailState = {detailState} 
                 setDetailState = {setDetailState}
                 clickHospital = {clickHospital}

@@ -4,6 +4,8 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import './EmergencyDetail.scss';
 
+import EmeMap from './EmeMap';
+
 
 function EmergencyDetail(props){
     // redux 변수
@@ -11,7 +13,16 @@ function EmergencyDetail(props){
     let dispatch = useDispatch();
 
     let [hospitalInformation1, setHospitalInformation1] = useState(['병원이름', '전화번호', '상세주소']);
+    let [emeX, setEmeX] = useState([]);
+    let [emeY, setEmeY] = useState([]);
 
+    let location = 0;
+    useEffect(() => {
+        console.log(props);
+        emeX.push(state[5].emeX);
+        emeY.push(state[5].emeY);
+        location = state[5].location;
+    }, [])
 
     function activate({ target }){
         let hospitalInformation = document.querySelector('.hospitalModal');
@@ -55,8 +66,9 @@ function EmergencyDetail(props){
 
     if(props.detailState === 1){
         console.log(props);
-        // setMonday();
-        
+        dispatch({type: '응급실위치', payload: {
+            location: props.clickHospital
+        }})
         return(
             <div className="hospitalDetail">
                 <div className="back"/>
@@ -71,29 +83,36 @@ function EmergencyDetail(props){
                         {Information1UI()}
                     </div>
                     <div className="hospitalDetail2">
-                            <ul className="hospitalModal">
-                                {
-                                    ['병원정보', '진료정보'].map(e => {
-                                        return(
-                                            <li onClick={activate}>{e}</li>
-                                        )
-                                    })  
-                                }
-                            </ul><br/><br/>
-                            <div className="hospitalDetail2Inner">
-                                <h1 className="emergencyCall">응급실 연락처 : {props.emeTel[props.clickHospital]}</h1>
-                                <br/>
-                                <h1>입원 가능 여부: {props.admission[props.clickHospital]}</h1><br/>
-                                <h1>진료 시간</h1><br/>
-                                <div className="weekBox">
-                                    {WeekUI()}
-                                </div> <br/>
-                                <h1>진료 과목</h1><br/>
-                                <div className="diagnosisBox">
-                                    <p className="diagnosis">{props.treatment[props.clickHospital]}</p>
-                                </div>
+                        <ul className="hospitalModal">
+                            {
+                                ['병원정보', '진료정보'].map(e => {
+                                    return(
+                                        <li onClick={activate}>{e}</li>
+                                    )
+                                })  
+                            }
+                        </ul><br/><br/>
+                        <div className="hospitalDetail2Inner">
+                            <h1 className="emergencyCall">응급실 연락처 : {props.emeTel[props.clickHospital]}</h1>
+                            <br/>
+                            <h1>입원 가능 여부: {props.admission[props.clickHospital]}</h1><br/>
+                            <h1>위치</h1>
+                            <EmeMap
+                                emeX = {emeX}
+                                emeY = {emeY}
+                                click = {props.clickHospital}
+                                detailState = {props.detailState}
+                            />
+                            <h1>진료 시간</h1><br/>
+                            <div className="weekBox">
+                                {WeekUI()}
+                            </div> <br/>
+                            <h1>진료 과목</h1><br/>
+                            <div className="diagnosisBox">
+                                <p className="diagnosis">{props.treatment[props.clickHospital]}</p>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         )
