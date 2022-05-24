@@ -10,12 +10,17 @@
         right: 0;
         left: 0;
         width: 56%;
-        // .backBtn{
-        //     border: 0;
-        //     font-size: 16px;
-        //     font-weight: 700;
-        //     width: 100px;
-        //     height: 40px;
-        // }
+        .section{
+            .backBtn{
+                position: fixed;
+                z-index: 100;
+                right: 22%;
+                border: 0;
+                font-size: 16px;
+                font-weight: 700;
+                width: 100px;
+                height: 40px;
+            }   
+        }
     }
 }

@@ -82,7 +82,7 @@ function KakaoMap(props){
             searchAddrFromCoords(map.getCenter(), displayCenterInfo);
         });
 
-        // url hispory각 
+        // url hispory
         let unlisten = history.listen(location => {
             if(history.action === 'POP'){
                 location.reload();

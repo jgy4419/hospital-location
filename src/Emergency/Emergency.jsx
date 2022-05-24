@@ -1,4 +1,7 @@
+/* eslint-disable */
+
 import React, {useState, useEffect} from 'react';
+import { Link, Route } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import './Emergency.scss'
 import EmeKakaoMap from './EmeKakaoMap';
@@ -13,14 +16,10 @@ function Emergency(){
             mapState: 1
         }})
         console.log(state[2].mapState);
-
-        // url hispory
-        // let unlisten = history.listen(location => {
-        //     if(history.action === 'POP'){
-        //         location.reload();
-        //     }
-        // });
     }, [])
+    function urlMain(){
+        window.location.href = '/';
+    }
     return(
         <div className="contain">
             <div className="inner">
@@ -29,7 +28,7 @@ function Emergency(){
                 </div>
                 <section className="section">
                     <EmeKakaoMap className="emeKakakaomap"/>
-                    {/* input 값을 props로 보내기. */}
+                    <button onClick={urlMain} className="backBtn">뒤로가기</button>
                     <EmergencyList className="emergencyList"/>
                 </section>
             </div>

@@ -33,13 +33,15 @@ function EmergencyDetail(props){
 
     function Information1UI(){
         let array = [];
-        let info = ['병원 이름', '전화번호', '상세주소'];
+        let info = ['병원 이름', '전화번호', '응급실 번호'];
 
         let hospitalName = props.hospitalName[props.clickHospital];
         let hospitalTel = props.hospitalTel[props.clickHospital];
-        let hospitalAddress = props.hospitalAddress[props.clickHospital];
+        let hospitalEmeTel = props.emeTel[props.clickHospital];
+        
+        let emeTel = hospitalEmeTel;
 
-        let hospitalInfo = [hospitalName, hospitalTel, hospitalAddress];
+        let hospitalInfo = [hospitalName, hospitalTel, emeTel];
         for(let i = 0; i < info.length; i++){
             array.push(
                 <p className = "firstInformation">{info[i]}: {hospitalInfo[i]}</p>
@@ -69,6 +71,22 @@ function EmergencyDetail(props){
         dispatch({type: '응급실위치', payload: {
             location: props.clickHospital
         }})
+        let hospitalAddress = props.hospitalAddress[props.clickHospital];
+
+        // setTimeout 안쓰도록.. 해보기
+        setTimeout(() => {
+            let emeStateText = document.getElementById('emeStateText');
+            console.log(emeStateText);
+            if(emeStateText.innerHTML === 'True'){
+                emeStateText.style.color = 'blue';
+                emeStateText.innerHTML = '입원 가능'
+            }else if(emeStateText.innerHTML === 'False'){
+                emeStateText.style.color = 'red';
+                emeStateText.innerHTML = '입원 불가능'
+            }
+        }, 1);
+
+        console.log(hospitalAddress);
         return(
             <div className="hospitalDetail">
                 <div className="back"/>
@@ -93,21 +111,21 @@ function EmergencyDetail(props){
                             }
                         </ul><br/><br/>
                         <div className="hospitalDetail2Inner">
-                            <h1 className="emergencyCall">응급실 연락처 : {props.emeTel[props.clickHospital]}</h1>
+                            {/* <h1 className="emergencyCall">응급실 연락처 : {props.emeTel[props.clickHospital]}</h1> */}
                             <br/>
-                            <h1>입원 가능 여부: {props.admission[props.clickHospital]}</h1><br/>
-                            <h1>위치</h1>
+                            <h1 className="emeState">입원 가능 여부: <span id="emeStateText">{props.admission[props.clickHospital]}</span></h1><br/>
+                            <h1 className="emeLocation">위치: {hospitalAddress}</h1>
                             <EmeMap
                                 emeX = {emeX}
                                 emeY = {emeY}
                                 click = {props.clickHospital}
                                 detailState = {props.detailState}
                             />
-                            <h1>진료 시간</h1><br/>
+                            <h1 className="treatmentTime">진료 시간</h1><br/>
                             <div className="weekBox">
                                 {WeekUI()}
                             </div> <br/>
-                            <h1>진료 과목</h1><br/>
+                            <h1>병원 구분</h1><br/>
                             <div className="diagnosisBox">
                                 <p className="diagnosis">{props.treatment[props.clickHospital]}</p>
                             </div>

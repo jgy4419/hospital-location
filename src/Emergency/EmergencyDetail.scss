@@ -1,4 +1,9 @@
 .hospitalDetail{
+    .firstInformation{
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 700;
+    }
     .back{
         position: fixed;
         z-index: 100;
@@ -50,6 +55,12 @@
                 }
             }
             .hospitalDetail2Inner{
+                .emeLocation{
+                    margin-bottom: 10px;
+                }
+                .treatmentTime{
+                    margin: 20px 10px 0px;
+                }
                 .weekBox, .diagnosis{
                     padding: 20px;
                     border-radius: 10px;

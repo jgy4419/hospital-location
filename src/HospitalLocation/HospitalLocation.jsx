@@ -48,7 +48,7 @@ function HospitalLocation(){
         let searchBtn = document.querySelector('.btn');
         let search = document.querySelector('.search');
         let test = searchBtn.addEventListener('click', function(){
-            console.log('클리', search.textContent);
+            console.log('클릭', search.textContent);
             dispatch({type: '검색', payload: {
                 sendInput: e.target.value,
             }})
