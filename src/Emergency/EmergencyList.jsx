@@ -3,6 +3,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import EmergencyDetail from './EmergencyDetail';
 import './EmergencyList.scss';
 
@@ -39,6 +40,8 @@ function EmergencyList(){
     let [treatment, setTreatment] = useState([]);
     let [admission, setAdmission] = useState([]);
 
+    const history = useHistory();
+
     useEffect(() => {
         // 1초에 한 번씩 변하는 값 확인, 병원 이름이 변하면 setInterval을 멈추고, 데이터를 출력해준다.
         let interval = setInterval(() => {
@@ -73,7 +76,17 @@ function EmergencyList(){
                 clearInterval(interval);
             }
         }, 1000);
-    }, []);
+
+        let unlisten = history.listen((location) => {
+            if (history.action === 'POP') {
+                window.location.reload();
+            }
+          });
+      
+          return () => {
+            unlisten();
+          };
+    }, [history]);
 
     async function detailInformationOpen(e){
         await setDetailState(1);
@@ -88,8 +101,8 @@ function EmergencyList(){
                     console.log(hospitalName[i]);
                     array.push(
                         <>
-                            <div className="list">
-                                <div class="hospitalDetailBox" onClick={() => {detailInformationOpen(i)}}>
+                            <div className="list" onClick={() => {detailInformationOpen(i)}}>
+                                <div class="hospitalDetailBox">
                                     <p className="hospitalCount" style={{display: 'none'}}>{i}</p>
                                     <p className = "name">이름: {hospitalName[i]}</p>
                                     <p className = "tel">전화번호: {hospitalTel[i]}</p>

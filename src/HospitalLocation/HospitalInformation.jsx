@@ -7,6 +7,8 @@ import './HospitalInformation.scss'
 import axios from 'axios';
 import Spinner from '../Spinner';
 
+import {useHistory, useLocation} from 'react-router-dom';
+
 import {connect, useSelector, useDispatch} from 'react-redux';
 
 function HospitalInformation(props){
@@ -26,13 +28,14 @@ function HospitalInformation(props){
     let [hospital, setHospital] = useState([]);
     let stop = '';
 
-    useEffect(() => {
+    const history = useHistory();
+    useEffect(async () => {
+        
         let interval = setInterval(() => {
             // useState에 배열 넣는 방법.
             setHospital(state[1].hospital);
             // stop에 1초에 한 번씩 바뀐 address 값을 보내줌. stop의 초기 값은 ''
             stop = state[1].setAddress;
-            // console.log(stop);
             // 만약 stop의 값이 ''랑 다르면 setInterval 멈추고, spinner false로 바꿔주기.
             if(stop !== ''){
                 clearInterval(interval);
@@ -46,8 +49,23 @@ function HospitalInformation(props){
                     // props.propsCount(1);
                 });
             }
+
         }, 1000);
-    }, [])
+
+        let unlisten = history.listen((location) => {
+            if (history.action === 'POP') {
+                window.location.reload();
+            }
+          });
+      
+          return () => {
+            unlisten();
+            state[1].hospital = [];
+                setHospital([]);
+          };
+
+    }, [history])
+
     // 클릭한 병원
     function clickHospital(){
         let hospitalInformationBox = document.querySelectorAll('.hospitalInformationBox');

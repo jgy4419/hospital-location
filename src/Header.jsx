@@ -3,12 +3,12 @@ import {useState, useEffect} from 'react';
 import './Header.scss';
 
 function Header(){
-    let menuList = ['홈', '내 위치 병원 찾기!', '문의'];
+    let menuList = ['홈', '내 위치 근처 병원 찾기', '내 주변 응급실 찾기'];
 
     useEffect(() => {
         // 누른 메뉴에 따라서 url 변경.
         let menuList = document.querySelectorAll('.menuList');
-        let load = ['/', 'hospital', 'about'];
+        let load = ['/', 'hospital', 'emergency'];
         for(let i = 0; i < menuList.length; i++){
             menuList[i].addEventListener('click', function(){
                 window.location.href = load[i];
@@ -40,9 +40,6 @@ function Header(){
             </div>
             <div className='menuOpen'>
                 <ul>
-                    <li>
-                        <input className='searchHospital' placeholder = "병원 이름을 입력해주세요!"/>
-                    </li>
                     {
                         menuList.map(i => {
                             return(

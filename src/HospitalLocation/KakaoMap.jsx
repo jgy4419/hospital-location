@@ -65,9 +65,9 @@ function KakaoMap(props){
                     // 실제 내 위치(마커적용)
                     resolve(mapReset(state[0].clickLocationsX, state[0].clickLocationsY));
                     // test 위치(마커적용)
-            }, function(error){
-                console.log(error);
-            }, {
+                }, function(error){
+                    console.log(error);
+                }, {
                     enableHighAccuracy: false,
                     maximumAge: 0, 
                     timeout: Infinity
@@ -77,6 +77,7 @@ function KakaoMap(props){
                 reject('실패');
             }
         })
+
         // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'idle', function() {
             searchAddrFromCoords(map.getCenter(), displayCenterInfo);
@@ -165,13 +166,11 @@ function KakaoMap(props){
     }
     // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
     function displayCenterInfo(result, status) {
-        /// 여기까지
         var infowindow = new kakao.maps.InfoWindow({zIndex:1});
         if (status === kakao.maps.services.Status.OK) {
             // infoDiv의 innerHTML 값을 전송
             var infoDiv = document.getElementById('centerAddr');
             for(var i = 0; i < result.length; i++) {
-                // 행정동의 region_type 값은 'H' 이므로
                 if (result[i].region_type === 'H') {
                     infoDiv.innerHTML = result[i].address_name;
                     break;
@@ -202,7 +201,7 @@ function KakaoMap(props){
                     map.setBounds(bounds);
                 } 
             }
-            // 지도에 마커를 표시하는 함수입니다
+            // 지도에 마커를 표시하는 함수.
             function displayMarker(place) {
                 // 마커를 생성하고 지도에 표시합니다
                 var marker = new kakao.maps.Marker({

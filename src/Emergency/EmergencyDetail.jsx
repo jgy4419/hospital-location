@@ -35,9 +35,15 @@ function EmergencyDetail(props){
         let array = [];
         let info = ['병원 이름', '전화번호', '응급실 번호'];
 
-        let hospitalName = props.hospitalName[props.clickHospital];
-        let hospitalTel = props.hospitalTel[props.clickHospital];
-        let hospitalEmeTel = props.emeTel[props.clickHospital];
+        // let hospitalName = props.hospitalName[props.clickHospital];
+        // let hospitalTel = props.hospitalTel[props.clickHospital];
+        // let hospitalEmeTel = props.emeTel[props.clickHospital];
+
+        let [hospitalName, hospitalTel, hospitalEmeTel] = [
+            props.hospitalName[props.clickHospital],
+            props.hospitalTel[props.clickHospital],
+            props.emeTel[props.clickHospital]
+        ]
         
         let emeTel = hospitalEmeTel;
 

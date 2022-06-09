@@ -93,7 +93,7 @@ function KakaoMap(props){
     // 내 위치 찾아주는 함수
     function mapReset(latitude, longitude){
         axios.get(`http://127.0.0.1:8000/test/${latitude}/${longitude}`)
-        // axios.get(`http://127.0.0.1:8000/test/${37.387871379956906}/${127.12132819639598}`)
+        // axios.get(`http://127.0.0.1:8000/test/${36.77556877677842}/${126.46515725738562}`)
         .then(res => {
             console.log(res.data);
             // 받아온 객체를 배열로 변환.
@@ -111,17 +111,10 @@ function KakaoMap(props){
 
                 // 응급실 상세정보
                 dispatch({type: '응급실상세정보', payload: {
-                    emeTel: hospital[i][1].응급실전화,
-                    monday: hospital[i][1].월요진료,
-                    thusday: hospital[i][1].화요진료,
-                    wednesday: hospital[i][1].수요진료,
-                    thursday: hospital[i][1].목요진료,
-                    friday: hospital[i][1].금요진료,
-                    saturday: hospital[i][1].토요진료,
-                    sunday: hospital[i][1].일요진료,
-                    holiday: hospital[i][1].공휴일진료,
-                    treatment: hospital[i][1].병원분류명,
-                    admission: hospital[i][1].입원가능여부
+                    emeTel: hospital[i][1].응급실전화, monday: hospital[i][1].월요진료, thusday: hospital[i][1].화요진료,
+                    wednesday: hospital[i][1].수요진료, thursday: hospital[i][1].목요진료, friday: hospital[i][1].금요진료,
+                    saturday: hospital[i][1].토요진료, sunday: hospital[i][1].일요진료, holiday: hospital[i][1].공휴일진료,
+                    treatment: hospital[i][1].병원분류명, admission: hospital[i][1].입원가능여부
                 }})
                 console.log('위도' + hospital[i][1].병원위도 + "경도" + hospital[i][1].병원경도)
                 dispatch({type: '응급실위치', payload: {
