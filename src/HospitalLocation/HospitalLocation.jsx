@@ -7,8 +7,6 @@ import KakaoMap from './KakaoMap';
 import HospitalInformation from './HospitalInformation'
 import axios from 'axios';
 
-import data from '../data/test.json';
-
 import { useDispatch, useSelector } from 'react-redux';
 // JSON 파일 서버 : npx json-server ./data.json(저장한 파일명) --watch --port 8080
 

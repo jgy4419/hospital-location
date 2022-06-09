@@ -91,6 +91,9 @@ function EmergencyList(){
     async function detailInformationOpen(e){
         await setDetailState(1);
         setClickHospital(e);
+        // 응급실 상세 정보 누르면 햄버거(메뉴창) 없애기
+        let menuIcon = document.querySelector('.menuListIcon');
+        menuIcon.style.display = 'none';
     }
 
     function EmeInformationUI(){

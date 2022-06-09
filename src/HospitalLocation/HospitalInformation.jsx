@@ -6,9 +6,7 @@ import React, {useState, useEffect} from 'react';
 import './HospitalInformation.scss'
 import axios from 'axios';
 import Spinner from '../Spinner';
-
-import {useHistory, useLocation} from 'react-router-dom';
-
+import {useHistory} from 'react-router-dom';
 import {connect, useSelector, useDispatch} from 'react-redux';
 
 function HospitalInformation(props){
@@ -29,6 +27,7 @@ function HospitalInformation(props){
     let stop = '';
 
     const history = useHistory();
+
     useEffect(async () => {
         
         let interval = setInterval(() => {
@@ -60,8 +59,6 @@ function HospitalInformation(props){
       
           return () => {
             unlisten();
-            state[1].hospital = [];
-                setHospital([]);
           };
 
     }, [history])

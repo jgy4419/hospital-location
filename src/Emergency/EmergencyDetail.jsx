@@ -100,6 +100,9 @@ function EmergencyDetail(props){
                     {/* onClick={props.setDetailState(0)} */}
                     <p className="close" onClick={() => {
                             props.setDetailState(0);
+                            // 응급실 상세 정보에서 x모양의 닫기 버튼을 누르면 햄버거(메뉴바) 생성.
+                            let menuIcon = document.querySelector('.menuListIcon');
+                            menuIcon.style.display = 'block';
                         }
                     }>X</p>
                     <div className="hospitalDetail">

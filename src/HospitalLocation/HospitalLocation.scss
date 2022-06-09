@@ -48,7 +48,10 @@ main{
     }
     @media screen and (max-width: 800px){
         .inner{
-            width: 80%;
+            width: 80vw;
+            .list{
+                margin-top: 30px;
+            }
         }
     }
     @media screen and (max-height: 400px){
