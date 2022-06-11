@@ -106,8 +106,6 @@ function KakaoMap(props){
                     hospitalTel: hospital[i][1].대표전화1,
                     hospitalAddress: hospital[i][1].주소,
                 }})
-                
-                console.log('전화번호들', hospital[i][1].응급실전화);
 
                 // 응급실 상세정보
                 dispatch({type: '응급실상세정보', payload: {
@@ -116,7 +114,6 @@ function KakaoMap(props){
                     saturday: hospital[i][1].토요진료, sunday: hospital[i][1].일요진료, holiday: hospital[i][1].공휴일진료,
                     treatment: hospital[i][1].병원분류명, admission: hospital[i][1].입원가능여부
                 }})
-                console.log('위도' + hospital[i][1].병원위도 + "경도" + hospital[i][1].병원경도)
                 dispatch({type: '응급실위치', payload: {
                     emeX: hospital[i][1].병원위도,
                     emeY: hospital[i][1].병원경도
@@ -176,65 +173,6 @@ function KakaoMap(props){
             // 지도 중심을 부드럽게 이동시킵니다
             // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
             map.panTo(moveLatLon);            
-        }
-    }
-    // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-    function displayCenterInfo(result, status) {
-        var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-        if (status === kakao.maps.services.Status.OK) {
-            // infoDiv의 innerHTML 값을 전송
-            var infoDiv = document.getElementById('centerAddr');
-            for(var i = 0; i < result.length; i++) {
-                // 행정동의 region_type 값은 'H' 이므로
-                if (result[i].region_type === 'H') {
-                    infoDiv.innerHTML = result[i].address_name;
-                    break;
-                }
-            }
-            changeInfoDiv = infoDiv.innerHTML;
-            // 장소 검색 객체를 생성합니다
-            var ps = new kakao.maps.services.Places();
-            
-            // 키워드 검색 완료 시 호출되는 콜백함수 입니다
-            function placesSearchCB (data, status, pagination) {
-                if (status === kakao.maps.services.Status.OK) {
-
-                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-                    // LatLngBounds 객체에 좌표를 추가합니다
-                    var bounds = new kakao.maps.LatLngBounds();
-
-                    for (var i = 0; i < data.length; i++) {
-                        displayMarker(data[i]);
-                        bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-                    }    
-                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-                    map.setBounds(bounds);
-                } 
-            }
-            // 지도에 마커를 표시하는 함수입니다
-            function displayMarker(place) {
-                // 마커를 생성하고 지도에 표시합니다
-                var marker = new kakao.maps.Marker({
-                    map: map,
-                    position: new kakao.maps.LatLng(place.y, place.x) 
-                });
-                // 일단 이렇게 값 넣어주기.
-                testX.push(place.x);
-                testY.push(place.y);
-                // 마커에 클릭이벤트를 등록합니다
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-                    infowindow.setContent(`<div style=
-                        "padding:5px;
-                        text-align: center;
-                        width: 150px;
-                        height: 30px;
-                        font-size:13px;
-                        font-weight: 700;"
-                    >` + place.place_name + '</div>');
-                    infowindow.open(map, marker);
-                });
-            }
         }
     }
     return(
