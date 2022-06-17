@@ -82,13 +82,6 @@ function KakaoMap(props){
         kakao.maps.event.addListener(map, 'idle', function() {
             searchAddrFromCoords(map.getCenter(), displayCenterInfo);
         });
-
-        // url hispory
-        let unlisten = history.listen(location => {
-            if(history.action === 'POP'){
-                location.reload();
-            }
-        });
     }, [])
 
 
@@ -239,9 +232,6 @@ function KakaoMap(props){
                     : null
                 }
                 <div className="btn">
-                    <button onClick={
-                        reload
-                    }>내 위치</button>
                     <button className="mapSize"
                     onClick={
                         () => {

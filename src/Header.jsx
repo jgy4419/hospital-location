@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import {Link, Route, Switch} from 'react-router-dom';
 import './Header.scss';
 
 function Header(){
@@ -33,22 +34,29 @@ function Header(){
         return menuIcon;
     }
 
+    function urlMain(){
+        window.location.href = '/';
+    }
+
     return(
         <header>
-            <div className='menuListIcon' onClick={hamburgerMove}>
-                {hamburger()}
+            <div className="inner">
+                <img onClick={urlMain} className="logo" alt="스크린샷 2022-05-12 오후 1 30 46" src="https://user-images.githubusercontent.com/76980526/174195830-6909582a-9f7b-4607-833c-68f49239b273.png"></img>
+                <div className='menuListIcon' onClick={hamburgerMove}>
+                    {hamburger()}
+                </div>
             </div>
             <div className='menuOpen'>
-                <ul>
-                    {
-                        menuList.map(i => {
-                            return(
-                                <li className="menuList">{i}</li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+                    <ul>
+                        {
+                            menuList.map(i => {
+                                return(
+                                    <li className="menuList">{i}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
         </header>
     )
 }
