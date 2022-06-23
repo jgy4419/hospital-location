@@ -22,12 +22,12 @@
         top: 0;
         bottom: 0;
         margin: 20px auto;
-        width: 80vw;
+        width: 90vw;
         height: 90vh;
         .close{
-            position: fixed;
+            position: relative;
             z-index: 1000;
-            right: 10%;
+            right: 5%;
             padding: 20px;
             color: #000;
         }
@@ -38,16 +38,18 @@
         }
         .hospitalDetail2{
             margin-top: 10px;
-            padding: 20px;
+            padding: 50px;
             border-radius: 10px;
             height: 1000px;
             background-color: rgb(255, 255, 255);
             .hospitalModal{
+                position: relative;
                 display: flex;
                 justify-content: space-around;
-                li{
-                    font-size: 18px;
-                    font-weight: 700;
+                h1{
+                    position: absolute;
+                    left: 0;
+                    font-weight: 900;
                     cursor: pointer;
                 }
                 li.active{
@@ -80,6 +82,13 @@
                     height: 50px;
                     margin-right: 20px;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 800px){
+        .information{
+            .hospitalDetail2{
+                padding: 25px;
             }
         }
     }

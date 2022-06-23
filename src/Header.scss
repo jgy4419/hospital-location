@@ -1,6 +1,5 @@
 header{
     position: relative;
-    // z-index: 10;
     width: 100vw;
     height: 10vh;
     .inner{
@@ -15,10 +14,6 @@ header{
             cursor: pointer;
         }
         .menuListIcon{
-            // position: absolute;
-            // transform: translateX(200px);
-            top: 0;
-            right: 29%;
             cursor: pointer;
             z-index: 100;
             padding: 30px;
@@ -139,6 +134,51 @@ header{
             }
         }
     }   
+}
+@media screen and (max-width: 500px){
+    header{
+        .inner{
+            .logo{
+                width: 30px;
+                height: 30px;
+            }
+            .menuListIcon{
+                .line{
+                    border-bottom: 4px solid #333;
+                }
+                .line:nth-child(2){
+                    margin-top: 7px;
+                }
+                .line:nth-child(3){
+                    animation-name: hamburgetBottom;
+                    margin-top: 14px;
+                }
+                @keyframes hamburgerTop{
+                    0%{
+                        
+                        transform: rotate(0deg);
+                    }
+                    50%{
+                        transform: translateY(10px);
+                    }
+                    100%{
+                        transform: translateY(5px)rotateZ(50deg);
+                    }
+                }
+                @keyframes hamburgerBottom{
+                    0%{
+                        transform: rotate(0deg);
+                    }
+                    50%{
+                        transform: translateY(-10px);
+                    }
+                    100%{
+                        transform: translateY(-10px) rotateZ(-50deg);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-height: 500px){

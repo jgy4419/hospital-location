@@ -35,10 +35,6 @@ function EmergencyDetail(props){
         let array = [];
         let info = ['병원 이름', '전화번호', '응급실 번호'];
 
-        // let hospitalName = props.hospitalName[props.clickHospital];
-        // let hospitalTel = props.hospitalTel[props.clickHospital];
-        // let hospitalEmeTel = props.emeTel[props.clickHospital];
-
         let [hospitalName, hospitalTel, hospitalEmeTel] = [
             props.hospitalName[props.clickHospital],
             props.hospitalTel[props.clickHospital],
@@ -106,18 +102,12 @@ function EmergencyDetail(props){
                         }
                     }>X</p>
                     <div className="hospitalDetail">
-                        <h1>병원 상세정보</h1><br/>
+                        <h1>병원 정보</h1><br/>
                         {Information1UI()}
                     </div>
                     <div className="hospitalDetail2">
                         <ul className="hospitalModal">
-                            {
-                                ['병원정보', '진료정보'].map(e => {
-                                    return(
-                                        <li onClick={activate}>{e}</li>
-                                    )
-                                })  
-                            }
+                            <h1 onClick={activate}>병원 상세정보</h1>
                         </ul><br/><br/>
                         <div className="hospitalDetail2Inner">
                             {/* <h1 className="emergencyCall">응급실 연락처 : {props.emeTel[props.clickHospital]}</h1> */}

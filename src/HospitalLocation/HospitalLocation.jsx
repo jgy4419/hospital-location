@@ -59,7 +59,6 @@ function HospitalLocation(){
     return(
         <main>
             <div className="inner">
-                <hr className="line"/>
                 <div>
                 </div>
                 <section className="section">

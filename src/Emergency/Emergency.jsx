@@ -23,7 +23,6 @@ function Emergency(){
     return(
         <div className="contain">
             <div className="inner">
-                <hr className="line"/>
                 <div>
                 </div>
                 <section className="section">

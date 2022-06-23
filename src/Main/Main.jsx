@@ -77,18 +77,13 @@ function Main(){
                                 <i className="fa fas fa-location-arrow"></i>
                             </div>
                             <Link to="/hospital"><button className="btn first">병원찾기!</button></Link>
-                            <button style={{
-                                // marginBottom: "-40px"
-                            }} onClick={() => {setHelpState(1)}} class="helpBtn">!</button>
+                            <button onClick={() => {setHelpState(1)}} class="helpBtn">!</button>
                         </div>
                         <div className='item'>
                             <p className='title3'>🚨근처 응급실을 찾아봐요!🚨</p>
                             <Link to="/emergency"><button className="emergencyBtn">찾아보기</button></Link>
+                            <button onClick={() => {setHelpState(2)}} class="helpBtn">!</button>
                         </div>
-                        {/* <div className='item'>
-                            <p className='title3'>개선할 점을 말해주세요! 👨‍💻🧑🏻‍💻👩🏻‍💻</p>
-                            <Link to="/about"><button className="emergencyBtn">문의하기</button></Link>
-                        </div> */}
                     </div>
             </div>
             <div className="helpInformation">
@@ -106,7 +101,6 @@ function HelpInformation(props){
             <div className="helpContain">
                 <h1 className="title">검색 결과로 병원 찾기</h1>
                 <br/>
-                <p>ex)</p>
                 <h1>1.</h1>
                 <img width="200" alt="image" src="https://user-images.githubusercontent.com/76980526/166665818-bb3bf5f5-c0cc-478f-ac39-73f2dacd17dd.png"/>
                 <br/><br/>
@@ -122,7 +116,6 @@ function HelpInformation(props){
             <div className="helpContain">
                 <h1 className="title">내 위치 주변에 있는 병원을 찾기</h1>
                 <br/>
-                <h1>ex)</h1>
                 <h1>1.</h1>
                 <img width="200" alt="image" src="https://user-images.githubusercontent.com/76980526/166666817-ee8b19f7-9a4c-4a48-a7cb-c90b905942f5.png"></img>
                 <br/><br/>
@@ -131,6 +124,23 @@ function HelpInformation(props){
                 <img width="400" alt="image" src="https://user-images.githubusercontent.com/76980526/166666994-045861e8-e16a-49fc-ab2f-cc0c1d8f0ca1.png"></img>
                 <br/><br/>
                 <p>내 위치 주변에 있는 병원들을 찾아줍니다.</p>
+            </div>
+        )
+    }else if(props.helpState === 2){
+        return(
+            <div className="helpContain">
+                <h1 className="title">내 위치 주변에 있는 응급실 찾기</h1>
+                <br/>
+                <h1>1.</h1>
+                <br/>
+                <img width="400" alt="image" src="https://user-images.githubusercontent.com/76980526/175319099-ec2acb00-bd8e-4fe7-b5de-29db1af6aab0.png"/>
+                <br/><br/>
+                <p>해당 사이트에 들어가면 내 위치를 찾아준 뒤 반경 11km 이내에 있는 응급실이 있는 병원들을 찾아줍니다.</p>
+                <h1>2.</h1>
+                <br/>
+                <img width="400" alt="image" src="https://user-images.githubusercontent.com/76980526/175317999-f7702246-6ced-4e3b-8d16-3145b88657bd.png"/>
+                <br/><br/>
+                <p>병원 위치, 요일별 진료 시간, 입원 가능 여부 등의 정보들을 얻을 수 있습니다.</p>
             </div>
         )
     }
