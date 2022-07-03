@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# 내 주변 병원위치, 응급실 찾아주는 웹 사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## url : https://hospital.jintam.site/
 
-## Available Scripts
+## 기술
+<hr/>
 
-In the project directory, you can run:
+> 프론트엔드 : React.js, Redux, Sass, JavaScript
 
-### `npm start`
+> 백엔드 : Python, Django, AWS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 기능
+1. 내 주변에 있는 병원 찾아주는 기능.
+ <br/> <br/>
+<img width="1028" alt="image" src="https://user-images.githubusercontent.com/76980526/177026235-0bf79198-46c3-4d05-8ce6-75d3a6f92353.png">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. 검색한 병원 찾아주는 기능.
+ - 메인페이지에서 찾고싶은 병원을 입력 후 검색하면
+<img width="1056" alt="image" src="https://user-images.githubusercontent.com/76980526/177026282-1a91b793-b60d-4145-8da9-2bbc8e608999.png">
+ - 해당 병원의 위치들과 간단한 정보들이 나옵니다.
+ <br/>
+<img width="1056" alt="image" src="https://user-images.githubusercontent.com/76980526/177026303-bbc37e51-57cb-44bf-bc0a-2f39278ca71a.png">
+3. 내 주변에 있는 응급실 찾아주기. 추가적으로 해당 병원의 간단한 정보들도 보여주기.
+    - 병원이름, 전화번호, 응급실 전화번호, 지도에 병원 위치 표시, 요일 별 진료시간, 병원 구분
+     <br/> <br/>
 
-### `npm test`
+<img width="408" alt="image" src="https://user-images.githubusercontent.com/76980526/177026186-b0cabcbb-699f-497d-9ca7-64ebb185a69d.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. 실시간 입원 가능한지 알려주기.
+ <br/> <br/>
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1390" alt="image" src="https://user-images.githubusercontent.com/76980526/177026207-0164585f-6615-488f-b25f-5abaa7e182b0.png">
