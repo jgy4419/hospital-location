@@ -18,7 +18,7 @@ let defaultState = [
   // 상태가 0이면 내 위치 근처 지도 찾아주는 기능 넣기 1이면 응급실 찾아주는 기능 넣기
   {mapState: 0},
   // [3]은 응급실 정보 모아놓음.
-  {emeCount: 0, hospitalName: [], hospitalTel: [], hospitalAddress: []},
+  {emeCount: 0, hospitalName: [], hospitalTel: [], hospitalAddress: [], hospitalBasicData: []},
   {emeTel: [], monday: [], thusday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [], holiday: [], treatment: [], admission: []},
   {emeX: [], emeY: []}
 ]
@@ -42,6 +42,8 @@ function reducer(state = defaultState, action){
   }else if(action.type === '지도기능'){
     copy[2].mapState = action.payload.mapState
   }else if(action.type === '응급실정보'){
+    copy[3].hospitalBasicData.push(action.payload.hospitalBasicData);
+
     copy[3].emeCount = action.payload.emeCount;
     copy[3].hospitalName.push(action.payload.hospitalName);
     copy[3].hospitalTel.push(action.payload.hospitalTel);

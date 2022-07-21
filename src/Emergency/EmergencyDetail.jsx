@@ -18,7 +18,6 @@ function EmergencyDetail(props){
 
     let location = 0;
     useEffect(() => {
-        console.log(props);
         emeX.push(state[5].emeX);
         emeY.push(state[5].emeY);
         location = state[5].location;
@@ -79,6 +78,7 @@ function EmergencyDetail(props){
         setTimeout(() => {
             let emeStateText = document.getElementById('emeStateText');
             console.log(emeStateText);
+            console.log(props);
             if(emeStateText.innerHTML === 'True'){
                 emeStateText.style.color = 'blue';
                 emeStateText.innerHTML = '입원 가능'
