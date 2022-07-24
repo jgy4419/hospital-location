@@ -208,7 +208,7 @@ function EmergencyList(){
     useEffect(() => {
         // 1초에 한 번씩 변하는 값 확인, 병원 이름이 변하면 setInterval을 멈추고, 데이터를 출력해준다.
         let interval = setInterval(() => {
-            console.log(state[3].hospitalBasicData);
+            // console.log(state[3].hospitalBasicData);
             if(state[3].hospitalBasicData[0].기관명 !== undefined){
                 for(let i = 0; i < state[3].emeCount; i++){
                     setHospitalBasicData(hospitalBasicData.push(state[3].hospitalBasicData[i]));

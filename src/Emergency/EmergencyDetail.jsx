@@ -12,12 +12,16 @@ function EmergencyDetail(props){
     let state = useSelector(state => state);
     let dispatch = useDispatch();
 
+    let basicData = [...props.basicData];
+
     let [hospitalInformation1, setHospitalInformation1] = useState(['병원이름', '전화번호', '상세주소']);
+    
     let [emeX, setEmeX] = useState([]);
     let [emeY, setEmeY] = useState([]);
 
     let location = 0;
     useEffect(() => {
+        console.log(basicData);
         emeX.push(state[5].emeX);
         emeY.push(state[5].emeY);
         location = state[5].location;
@@ -77,8 +81,10 @@ function EmergencyDetail(props){
         // setTimeout 안쓰도록.. 해보기
         setTimeout(() => {
             let emeStateText = document.getElementById('emeStateText');
-            console.log(emeStateText);
+            // console.log(emeStateText);
             console.log(props);
+            console.log(basicData);
+            // console.log(props.basicData);
             if(emeStateText.innerHTML === 'True'){
                 emeStateText.style.color = 'blue';
                 emeStateText.innerHTML = '입원 가능'
@@ -125,6 +131,7 @@ function EmergencyDetail(props){
                                 {WeekUI()}
                             </div> <br/>
                             <h1>병원 구분</h1><br/>
+                            {/* {props.basicData} */}
                             <div className="diagnosisBox">
                                 <p className="diagnosis">{props.treatment[props.clickHospital]}</p>
                             </div>
