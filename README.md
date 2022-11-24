@@ -20,13 +20,8 @@
  - 해당 병원의 위치들과 간단한 정보들이 나옵니다.
  <br/>
 <img width="1056" alt="image" src="https://user-images.githubusercontent.com/76980526/177026303-bbc37e51-57cb-44bf-bc0a-2f39278ca71a.png">
-3. 내 주변에 있는 응급실 찾아주기. 추가적으로 해당 병원의 간단한 정보들도 보여주기.
+3. 내 주변에 있는 응급실 찾아주기. 추가적으로 해당 병원의 간단한 정보들도 보여주기. +  실시간 입원 가능한지 알려주기.
     - 병원이름, 전화번호, 응급실 전화번호, 지도에 병원 위치 표시, 요일 별 진료시간, 병원 구분
      <br/> <br/>
-
-<img width="408" alt="image" src="https://user-images.githubusercontent.com/76980526/177026186-b0cabcbb-699f-497d-9ca7-64ebb185a69d.png">
-
-4. 실시간 입원 가능한지 알려주기.
- <br/> <br/>
-
-<img width="1390" alt="image" src="https://user-images.githubusercontent.com/76980526/177026207-0164585f-6615-488f-b25f-5abaa7e182b0.png">
+ 
+![화면_기록_2022-11-24_오전_10_37_41_AdobeExpress](https://user-images.githubusercontent.com/76980526/203678929-23f80a3a-4bed-4b84-94ed-858ec1791ab8.gif)
