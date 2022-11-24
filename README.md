@@ -24,4 +24,4 @@
     - 병원이름, 전화번호, 응급실 전화번호, 지도에 병원 위치 표시, 요일 별 진료시간, 병원 구분
      <br/> <br/>
  
-![화면_기록_2022-11-24_오전_10_37_41_AdobeExpress](https://user-images.githubusercontent.com/76980526/203678929-23f80a3a-4bed-4b84-94ed-858ec1791ab8.gif)
+ <img src="https://user-images.githubusercontent.com/76980526/203679502-65f932b2-6221-4696-9604-f9cb63e9ca56.gif" width="70%" alt="image"/>
