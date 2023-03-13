@@ -3,7 +3,6 @@
 ## url : https://hospital.jintam.site/
 
 ## 기술
-<hr/>
 
 > 프론트엔드 : React.js, Redux, Sass, JavaScript
 
@@ -23,5 +22,6 @@
 3. 내 주변에 있는 응급실 찾아주기. 추가적으로 해당 병원의 간단한 정보들도 보여주기. +  실시간 입원 가능한지 알려주기.
     - 병원이름, 전화번호, 응급실 전화번호, 지도에 병원 위치 표시, 요일 별 진료시간, 병원 구분
      <br/> <br/>
+4. 전국 자동 제세동기 위치 마커로 표시해주기.
  
  <img src="https://user-images.githubusercontent.com/76980526/203679502-65f932b2-6221-4696-9604-f9cb63e9ca56.gif" width="70%" alt="image"/>
